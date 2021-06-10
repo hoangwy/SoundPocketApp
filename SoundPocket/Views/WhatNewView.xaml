@@ -2,8 +2,181 @@
 <ContentView
     x:Class="SoundPocket.Views.WhatNewView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+    xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView">
     <ContentView.Content>
-        <Grid BackgroundColor="Red" />
+        <Grid RowDefinitions="160,50,180,50,*">
+            <cards:CoverFlowView
+                Grid.Row="0"
+                IsCyclical="false"
+                ItemsSource="{Binding Items}"
+                PositionShiftValue="75"
+                SelectedIndex="{Binding CurrentIndex}"
+                SlideShowDuration="3500">
+                <x:Arguments>
+                    <proc:CoverFlowProcessor OpacityFactor="0.25" ScaleFactor="0.75" />
+                </x:Arguments>
+                <cards:CoverFlowView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            CornerRadius="10"
+                            HasShadow="false"
+                            HeightRequest="150"
+                            HorizontalOptions="Center"
+                            IsClippedToBounds="true"
+                            VerticalOptions="Center"
+                            WidthRequest="300">
+
+                            <Image
+                                Aspect="AspectFill"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{Binding Image}"
+                                VerticalOptions="FillAndExpand" />
+
+                        </Frame>
+                    </DataTemplate>
+                </cards:CoverFlowView.ItemTemplate>
+            </cards:CoverFlowView>
+
+            <StackLayout
+                Grid.Row="1"
+                Margin="30,0"
+                Orientation="Horizontal">
+
+                <Grid
+                    BackgroundColor="#14A9FB"
+                    HeightRequest="30"
+                    VerticalOptions="Center"
+                    WidthRequest="5" />
+
+                <Label
+                    Margin="10,0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="New Songs"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+
+                <Image HeightRequest="50" WidthRequest="50" />
+
+            </StackLayout>
+
+            <CollectionView
+                Grid.Row="2"
+                Margin="20,0"
+                ItemsSource="{Binding NewSongs}"
+                VerticalOptions="Start">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="8" Orientation="Vertical">
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="100"
+                                Source="{Binding Image}"
+                                WidthRequest="100" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Title}"
+                                TextColor="White" />
+                            <Label
+                                FontSize="13"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Opacity="0.5"
+                                Text="{Binding Artist}"
+                                TextColor="White"
+                                VerticalOptions="End" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout
+                Grid.Row="3"
+                Margin="30,0"
+                Orientation="Horizontal">
+
+                <Grid
+                    BackgroundColor="#14A9FB"
+                    HeightRequest="30"
+                    VerticalOptions="Center"
+                    WidthRequest="5" />
+
+                <Label
+                    Margin="10,0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Latest Playlist"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+
+                <Image HeightRequest="50" WidthRequest="50" />
+
+            </StackLayout>
+
+            <CollectionView
+                x:Name="lstPlaylist"
+                Grid.Row="4"
+                Margin="20,0,0,0"
+                HeightRequest="250"
+                ItemsSource="{Binding Playlists}"
+                VerticalOptions="Start">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="8" Orientation="Horizontal">
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="60"
+                                Source="{Binding Image}"
+                                WidthRequest="60" />
+
+                            <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Vertical"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding Title}"
+                                    TextColor="White" />
+                                <Label
+                                    FontSize="13"
+                                    HorizontalOptions="FillAndExpand"
+                                    Opacity="0.5"
+                                    Text="{Binding Artist}"
+                                    TextColor="White"
+                                    VerticalOptions="End" />
+
+                            </StackLayout>
+
+                            <ImageButton
+                                Padding="14"
+                                HeightRequest="50"
+                                Source="{Binding IconHeart}"
+                                VerticalOptions="Center"
+                                WidthRequest="50" />
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Path=BindingContext.ItemPlaylistCommand, Source={x:Reference lstPlaylist}}}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentView.Content>
 </ContentView>

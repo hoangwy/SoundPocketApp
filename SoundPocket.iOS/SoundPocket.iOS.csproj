@@ -128,12 +128,31 @@
     <PackageReference Include="Sharpnado.Tabs">
       <Version>2.1.0</Version>
     </PackageReference>
+    <PackageReference Include="CardsView">
+      <Version>2.7.8</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\bg_login.png" />
     <BundleResource Include="Resources\ic_logo.png" />
     <BundleResource Include="Resources\ic_google.png" />
     <BundleResource Include="Resources\ic_search.png" />
+    <BundleResource Include="Resources\img_showcase_1.png" />
+    <BundleResource Include="Resources\img_showcase_2.png" />
+    <BundleResource Include="Resources\img_showcase_3.png" />
+    <BundleResource Include="Resources\img_song_1.png" />
+    <BundleResource Include="Resources\img_song_2.png" />
+    <BundleResource Include="Resources\img_song_3.png" />
+    <BundleResource Include="Resources\img_song_4.png" />
+    <BundleResource Include="Resources\ic_heart_fiiled.png" />
+    <BundleResource Include="Resources\ic_heart.png" />
+    <BundleResource Include="Resources\img_playlist_1.png" />
+    <BundleResource Include="Resources\img_playlist_2.png" />
+    <BundleResource Include="Resources\img_playlist_3.png" />
+    <BundleResource Include="Resources\img_playlistdetail.png" />
+    <BundleResource Include="Resources\ic_share.png" />
+    <BundleResource Include="Resources\ic_more.png" />
+    <BundleResource Include="Resources\ic_stars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\SoundPocket\SoundPocket.projitems" Label="Shared" />

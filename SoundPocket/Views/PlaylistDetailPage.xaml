@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SoundPocket.Views.PlaylistDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <Grid>
+            <Image
+                Aspect="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                Source="img_playlistdetail.png"
+                VerticalOptions="FillAndExpand" />
+
+            <StackLayout
+                Margin="20,0,20,60"
+                Orientation="Vertical"
+                VerticalOptions="End">
+
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="42"
+                    Text="False Alarm"
+                    TextColor="White" />
+
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    Opacity="0.75"
+                    Text="The Weeknd"
+                    TextColor="White" />
+
+                <StackLayout Margin="0,10,0,20" Orientation="Horizontal">
+
+                    <Button
+                        x:Name="BtnPlaySong"
+                        Clicked="BtnPlaySong_Clicked"
+                        CornerRadius="22"
+                        FontSize="16"
+                        HeightRequest="44"
+                        HorizontalOptions="Start"
+                        Text="Play Song"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        WidthRequest="180">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0, 0" EndPoint="1,1">
+                                <GradientStop Offset="0.0" Color="#16CAF0" />
+                                <GradientStop Offset="1.0" Color="#118ABC" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                    <Grid HorizontalOptions="FillAndExpand" />
+
+                    <ImageButton
+                        Padding="10"
+                        HeightRequest="50"
+                        Source="ic_share.png"
+                        WidthRequest="50" />
+
+                    <ImageButton
+                        Padding="10"
+                        HeightRequest="50"
+                        Source="ic_more.png"
+                        WidthRequest="50" />
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <StackLayout Orientation="Vertical">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            HorizontalOptions="FillAndExpand"
+                            Text="5 Albums"
+                            TextColor="White" />
+                        <Label
+                            FontSize="15"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.5"
+                            Text="Since 2012"
+                            TextColor="White"
+                            VerticalOptions="End" />
+                    </StackLayout>
+
+                    <Grid HorizontalOptions="FillAndExpand" />
+
+                    <Grid
+                        BackgroundColor="White"
+                        Opacity="0.5"
+                        VerticalOptions="FillAndExpand"
+                        WidthRequest="1" />
+
+                    <Grid HorizontalOptions="FillAndExpand" />
+
+                    <StackLayout Orientation="Vertical">
+
+                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Text="4.2"
+                                TextColor="White" />
+                            <Label
+                                FontSize="15"
+                                Opacity="0.5"
+                                Text="(12M)"
+                                TextColor="White"
+                                VerticalOptions="End" />
+                        </StackLayout>
+
+                        <Image HorizontalOptions="Center" Source="ic_stars.png" />
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

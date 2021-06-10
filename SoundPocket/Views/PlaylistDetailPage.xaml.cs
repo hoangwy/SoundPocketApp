@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using SoundPocket.ViewModels;
+
 using Xamarin.Forms;
 
 namespace SoundPocket.Views
 {
-    public partial class DiscoverPage : ContentPage
+    public partial class PlaylistDetailPage : ContentPage
     {
-        private DiscoverViewModel viewModel;
-
-        public DiscoverPage()
+        public PlaylistDetailPage()
         {
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
+        }
 
-            this.BindingContext = viewModel = new DiscoverViewModel();
+        void BtnPlaySong_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }
