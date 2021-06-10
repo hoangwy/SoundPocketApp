@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SoundPocket.Views.DiscoverPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tabs="http://sharpnado.com"
+    xmlns:views="clr-namespace:SoundPocket.Views">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TabStyle" TargetType="tabs:UnderlinedTabItem">
+                <Setter Property="SelectedTabColor" Value="#20A8FC" />
+                <Setter Property="LabelSize" Value="26" />
+                <Setter Property="UnselectedLabelColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="60,Auto,50,*">
+            <Grid Grid.Row="0" Grid.RowSpan="4">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0, 0" EndPoint="0,1">
+                        <GradientStop Offset="0.1" Color="#484C60" />
+                        <GradientStop Offset="0.5" Color="#303444" />
+                        <GradientStop Offset="1.0" Color="#1D212E" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+            <Label
+                Grid.Row="1"
+                Margin="30,0,60,0"
+                FontAttributes="Bold"
+                FontSize="36"
+                Text="Discover"
+                TextColor="White" />
+
+            <ImageButton
+                Grid.Row="1"
+                Padding="14"
+                BackgroundColor="Transparent"
+                HeightRequest="50"
+                HorizontalOptions="End"
+                Source="ic_search.png"
+                WidthRequest="50" />
+
+            <Grid
+                Grid.Row="2"
+                Margin="20,0"
+                BackgroundColor="White"
+                HeightRequest="3"
+                Opacity="0.5"
+                VerticalOptions="End" />
+
+            <tabs:TabHostView
+                x:Name="TabHost"
+                Grid.Row="2"
+                Margin="20,0"
+                BackgroundColor="Transparent"
+                SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                <tabs:TabHostView.Tabs>
+                    <tabs:UnderlinedTabItem Label="What’s New" Style="{StaticResource TabStyle}" />
+                    <tabs:UnderlinedTabItem Label="Recommended" Style="{StaticResource TabStyle}" />
+                    <tabs:UnderlinedTabItem Label="Genre" Style="{StaticResource TabStyle}" />
+                </tabs:TabHostView.Tabs>
+            </tabs:TabHostView>
+
+            <ScrollView Grid.Row="3">
+                <tabs:ViewSwitcher
+                    x:Name="Switcher"
+                    Animate="True"
+                    SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                    <views:WhatNewView />
+                    <views:RecommendedView />
+                    <views:GenreView />
+                </tabs:ViewSwitcher>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

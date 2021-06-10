@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SoundPocket.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <Grid>
+            <Image
+                Aspect="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                Source="bg_login.png"
+                VerticalOptions="FillAndExpand" />
+
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0, 0" EndPoint="0,1">
+                        <GradientStop Offset="0.1" Color="#991D212E" />
+                        <GradientStop Offset="1.0" Color="#1D212E" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+
+            <StackLayout
+                Margin="0,100,0,0"
+                HorizontalOptions="Center"
+                Orientation="Vertical">
+                <Image
+                    HeightRequest="200"
+                    Source="ic_logo.png"
+                    WidthRequest="200" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="32"
+                    HorizontalOptions="Center"
+                    Text="SoundPocket"
+                    TextColor="White" />
+
+                <Label
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="Bring your music anywhere"
+                    TextColor="White" />
+            </StackLayout>
+
+            <StackLayout
+                Margin="30,0,30,100"
+                Orientation="Vertical"
+                Spacing="20"
+                VerticalOptions="End">
+                <Button
+                    Clicked="Button_Clicked"
+                    CornerRadius="25"
+                    FontSize="17"
+                    HeightRequest="50"
+                    Text="Login"
+                    TextColor="White">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1,1">
+                            <GradientStop Offset="0.0" Color="#16CAF0" />
+                            <GradientStop Offset="1.0" Color="#118ABC" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#80FFFFFF"
+                    CornerRadius="25"
+                    HasShadow="False"
+                    HeightRequest="50">
+
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        <Image Source="ic_google.png" />
+                        <Label
+                            FontSize="17"
+                            Opacity="0.5"
+                            Text="Login with Google"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+
+                </Frame>
+
+            </StackLayout>
+
+            <Label
+                Margin="0,0,0,40"
+                FontSize="13"
+                HorizontalOptions="Center"
+                Opacity="0.5"
+                Text="Sound Pocket Ver 2.00.19"
+                TextColor="White"
+                VerticalOptions="End" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
